@@ -49,8 +49,7 @@ class lab4_bai3 : ComponentActivity() {
 fun Greeting3(modifier: Modifier = Modifier) {
             Scaffold(
                 floatingActionButton = {
-                    FloatingActionButton (onClick = { /* Handle
-FAB click action here */ }) {
+                    FloatingActionButton (onClick = {  }) {
                         Icon(Icons.Filled.Add,
                             contentDescription = "Add")
                     }

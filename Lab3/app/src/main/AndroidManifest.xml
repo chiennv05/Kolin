@@ -18,17 +18,19 @@
             android:label="@string/title_activity_lab4_bai3"
             android:theme="@style/Theme.Lab3" />
         <activity
-            android:name=".lab4_bai1"
+            android:name=".MainActivity"
             android:exported="false"
             android:label="@string/title_activity_lab_bai2"
             android:theme="@style/Theme.Lab3" />
         <activity
-            android:name=".MainActivity"
+
+            android:name=".lab4_bai3"
             android:exported="false"
             android:label="@string/title_activity_lab4_bai1"
             android:theme="@style/Theme.Lab3" />
+
         <activity
-            android:name=".lab4_bai3"
+            android:name=".lab4_bai1"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Lab3">

@@ -92,7 +92,7 @@ fun Doc(imageList: List<Int>) {
     val scrollState = rememberScrollState()
     Column(
         modifier = Modifier
-            .fillMaxWidth() // Chiếm toàn bộ chiều rộng để có thể căn giữa
+            .fillMaxWidth()
             .verticalScroll(scrollState)
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally // Căn giữa theo chiều ngang
@@ -105,7 +105,7 @@ fun Doc(imageList: List<Int>) {
                 modifier = Modifier
                     .padding(bottom = 8.dp)
                     .size(350.dp)
-                    .clip(RoundedCornerShape(20.dp)) // Bo góc 20dp
+                    .clip(RoundedCornerShape(20.dp))
                     .border(1.dp, Color.Red, RoundedCornerShape(20.dp)) // Viền theo góc bo
 
             )
