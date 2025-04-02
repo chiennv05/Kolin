@@ -16,6 +16,11 @@
     import androidx.compose.ui.tooling.preview.Preview
     import androidx.compose.ui.unit.dp
     import androidx.compose.ui.unit.sp
+    import androidx.navigation.compose.NavHost
+    import androidx.navigation.compose.composable
+    import androidx.navigation.compose.rememberNavController
+    import com.example.lab3.lab5.Bai2
+    import com.example.lab3.lab5.Bai3
     import com.example.lab3.ui.theme.Lab3Theme
 
     class MainActivity : ComponentActivity() {
@@ -23,77 +28,42 @@
             super.onCreate(savedInstanceState)
             enableEdgeToEdge()
             setContent {
-                MyApp("Nguyễn Văn Chiến - PH50713")
-            }
-        }
-    }
+                Lab3Theme {
+                    Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                        MyApp(
 
-    @Composable
-    fun MyApp(Name: String) {
-        Column (
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ){
-            GreetingMessageCard("Hello, $Name")
-            CounterCard()
-        }
-
-
-
-    }
-
-    @Composable
-    fun GreetingMessageCard(msg: String) {
-        var text by remember { mutableStateOf(msg) }
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(24.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            MessageTextCard(msg = text)
-            Button(onClick = { text = "Hi!" }) {
-                Text("Say Hi!")
+                            modifier = Modifier.padding(innerPadding)
+                        )
+                    }
+                }
             }
         }
     }
 
 
     @Composable
-    fun MessageTextCard(msg: String) {
-        Text(
-            text = msg,
-            modifier = Modifier
-                .padding(0.dp, 16.dp)
-                .fillMaxWidth(),
-            color = Color.DarkGray,
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Bold,
-            textAlign = TextAlign.Center,
-        )
-    }
-
-    @Composable
-    fun CounterCard() {
-        var count by rememberSaveable { mutableIntStateOf(0) }
-        Column(
-            modifier = Modifier.fillMaxWidth().padding(24.dp),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            MessageTextCard(    "You have clicked the button $count times.")
-            Button(onClick = { count++ }) {
-                Text("Click me")
+    fun MyApp( modifier: Modifier = Modifier ) {
+        val navController = rememberNavController()
+        NavHost(navController = navController, startDestination = "Bai3") {
+            composable("Bai2") {
+                Bai2()
             }
+
+            composable("Bai3") {
+                Bai3()
+            }
+
+
+
         }
     }
 
-    @Preview(showBackground = true, showSystemUi = true)
+
+
+    @Preview(showSystemUi = true, showBackground = true)
     @Composable
     fun GreetingPreview() {
         Lab3Theme {
-            MyApp("Nguyễn Văn Chiến - PH50713")
+            MyApp()
         }
     }
